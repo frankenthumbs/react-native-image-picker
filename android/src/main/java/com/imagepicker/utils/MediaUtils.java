@@ -268,11 +268,10 @@ public class MediaUtils
 
             // extract lat, long, and timestamp and add to the response
             float[] latlng = new float[2];
-            exif.getLatLong(latlng);
-            float latitude = latlng.length > 0 ? latlng[0] : 0;
-            float longitude = latlng.length > 1 ? latlng[1] : 0;
-            if(latitude != 0f || longitude != 0f)
+            if (exif.getLatLong(latlng))
             {
+                float latitude = latlng.length > 0 ? latlng[0] : 0;
+                float longitude = latlng.length > 1 ? latlng[1] : 0;
                 responseHelper.putDouble("latitude", latitude);
                 responseHelper.putDouble("longitude", longitude);
             }
