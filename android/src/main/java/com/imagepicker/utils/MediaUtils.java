@@ -48,7 +48,7 @@ public class MediaUtils
         // defaults to Public Pictures Directory
         File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 
-        if (ReadableMapUtils.hasAndNotNullReadableMap(options, "storageOptions")) 
+        if (ReadableMapUtils.hasAndNotNullReadableMap(options, "storageOptions"))
         {
             final ReadableMap storageOptions = options.getMap("storageOptions");
 
@@ -269,8 +269,8 @@ public class MediaUtils
             // extract lat, long, and timestamp and add to the response
             float[] latlng = new float[2];
             exif.getLatLong(latlng);
-            float latitude = latlng[0];
-            float longitude = latlng[1];
+            float latitude = latlng.length > 0 ? latlng[0] : 0;
+            float longitude = latlng.length > 1 ? latlng[1] : 0;
             if(latitude != 0f || longitude != 0f)
             {
                 responseHelper.putDouble("latitude", latitude);
