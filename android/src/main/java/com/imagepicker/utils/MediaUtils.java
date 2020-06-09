@@ -267,14 +267,14 @@ public class MediaUtils
             ExifInterface exif = new ExifInterface(imageConfig.original.getAbsolutePath());
 
             // extract lat, long, and timestamp and add to the response
-            float[] latlng = new float[2];
-            if (exif.getLatLong(latlng))
-            {
-                float latitude = latlng.length > 0 ? latlng[0] : 0;
-                float longitude = latlng.length > 1 ? latlng[1] : 0;
-                responseHelper.putDouble("latitude", latitude);
-                responseHelper.putDouble("longitude", longitude);
-            }
+            // float[] latlng = new float[2];
+            // if (exif.getLatLong(latlng))
+            // {
+            //     float latitude = latlng.length > 0 ? latlng[0] : 0;
+            //     float longitude = latlng.length > 1 ? latlng[1] : 0;
+            //     responseHelper.putDouble("latitude", latitude);
+            //     responseHelper.putDouble("longitude", longitude);
+            // }
 
             final String timestamp = exif.getAttribute(ExifInterface.TAG_DATETIME);
             final SimpleDateFormat exifDatetimeFormat = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss");
